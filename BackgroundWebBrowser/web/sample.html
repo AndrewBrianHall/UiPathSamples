@@ -1,0 +1,99 @@
+<!doctype html>
+<!-- saved from url=(0023)http://www.contoso.com/ -->
+<html>
+
+<head>
+    <style>
+        .label {
+            font-weight: bold;
+            width: 100px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .row {
+            padding-top: 5px;
+        }
+        
+        input {
+            width: 300px;
+        }
+        
+        button {
+            margin-top: 10px;
+            width: 75px;
+        }
+        
+        textarea {
+            overflow: auto;
+            width: 300px;
+            height: 3.5em;
+        }
+    </style>
+    <script>
+        function onSubmit() {
+            var firstName = document.getElementById('txtFirstName').value;
+            var lastName = document.getElementById('txtLastName').value;
+            var email = document.getElementById('txtEmail').value;
+            var message = document.getElementById('txtMessage').value;
+
+            document.getElementById('spnFirstName').innerText = firstName;
+            document.getElementById('spnLastName').innerText = lastName;
+            document.getElementById('spnEmail').innerText = email;
+            document.getElementById('spnMessage').innerText = message;
+        }
+
+        function onClear() {
+            var clearedValue = "";
+            document.getElementById('txtFirstName').value = clearedValue;
+            document.getElementById('txtLastName').value = clearedValue;
+            document.getElementById('txtEmail').value = clearedValue;
+            document.getElementById('txtMessage').value = clearedValue;
+            onSubmit();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="form">
+        <div class="row">
+            <span class="label">First Name</span>
+            <input id="txtFirstName" type="text" placeholder="Enter first name">
+        </div>
+        <div class="row">
+            <span class="label">Last Name</span>
+            <input id="txtLastName" type="text" placeholder="Enter last name">
+        </div>
+        <div class="row">
+            <span class="label">Email</span>
+            <input id="txtEmail" type="text" placeholder="Enter email address">
+        </div>
+        <div class="row">
+            <span class="label">Message</span>
+            <textarea id="txtMessage" placeholder="Enter a message"></textarea>
+        </div>
+        <div class="row">
+            <button onclick="onSubmit()">Submit</button>
+            <button onclick="onClear()">Clear</button>
+        </div>
+    </div>
+    <div id="results">
+        <p>
+            You submitted the following information:
+        </p>
+        <div class="row">
+            <span class="label">First Name</span> <span id="spnFirstName"></span>
+        </div>
+        <div class="row">
+            <span class="label">Last Name</span> <span id="spnLastName"></span>
+        </div>
+        <div class="row">
+            <span class="label">Email</span> <span id="spnEmail"></span>
+        </div>
+        <div class="row">
+            <span class="label">Message</span> <span id="spnMessage"></span>
+        </div>
+    </div>
+</body>
+
+</html>
