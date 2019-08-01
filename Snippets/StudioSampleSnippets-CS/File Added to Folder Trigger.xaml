@@ -1,0 +1,179 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="816,1951.2" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Monitor Folder for Added Files" sap:VirtualizedContainerService.HintSize="776,1831.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="folderToMonitor" />
+      <Variable x:TypeArguments="s:String[]" Name="filesInDirectoryToStart" />
+      <Variable x:TypeArguments="x:Boolean" Name="shouldStop" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetEnvironmentFolder sap2010:Annotation.AnnotationText="Monitoring the current users Documents folder" DisplayName="Get Environment Folder" FolderPath="[folderToMonitor]" sap:VirtualizedContainerService.HintSize="737.6,90.4" sap2010:WorkflowViewState.IdRef="GetEnvironmentFolder_1" SpecialFolder="MyDocuments">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetEnvironmentFolder>
+    <While sap:VirtualizedContainerService.HintSize="737.6,1608" sap2010:WorkflowViewState.IdRef="While_1" Condition="[Not shouldStop]">
+      <Sequence DisplayName="While Loop Sequence" sap:VirtualizedContainerService.HintSize="696,1448.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="chosenButton" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap2010:Annotation.AnnotationText="Gets the list of the files in the directory before we start monitoring so we can tell what files have been added.  " sap:VirtualizedContainerService.HintSize="657.6,136" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign.To>
+            <OutArgument x:TypeArguments="s:String[]">[filesInDirectoryToStart]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(folderToMonitor)]</InArgument>
+          </Assign.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Assign>
+        <ui:MonitorEvents ContinueOnError="{x:Null}" DisplayName="Monitor Events" sap:VirtualizedContainerService.HintSize="657.6,980" sap2010:WorkflowViewState.IdRef="MonitorEvents_1" RepeatForever="False">
+          <ui:MonitorEvents.Handler>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="args" />
+              </ActivityAction.Argument>
+              <Sequence sap:VirtualizedContainerService.HintSize="627.2,796.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence sap2010:Annotation.AnnotationText="This is called when the File Change Trigger detects a change per its configuration" DisplayName="Event Handler" sap:VirtualizedContainerService.HintSize="588.8,704" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="s:String[]" Name="filesInDirectory" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap2010:Annotation.AnnotationText="Get the files currently in the directory which will included the added file" sap:VirtualizedContainerService.HintSize="550.4,104" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s:String[]">[filesInDirectory]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(folderToMonitor)]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="550.4,439.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[filesInDirectory]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="x:String">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="518.4,304.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[Not filesInDirectoryToStart.Contains(file)]" sap:VirtualizedContainerService.HintSize="480,212" sap2010:WorkflowViewState.IdRef="If_1">
+                            <If.Then>
+                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="226.4,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[file + &quot; was added to &quot; + folderToMonitor]" />
+                            </If.Then>
+                          </If>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                  </ui:ForEach>
+                </Sequence>
+              </Sequence>
+            </ActivityAction>
+          </ui:MonitorEvents.Handler>
+          <ui:MonitorEvents.Triggers>
+            <ui:FileChangeTrigger FileName="{x:Null}" sap2010:Annotation.AnnotationText="This is configured to listen for Created events, but other changes can optionally be monitored for as well" ChangeType="Created" DisplayName="File Change Trigger" sap:VirtualizedContainerService.HintSize="216,98.4" sap2010:WorkflowViewState.IdRef="FileChangeTrigger_1" IncludeSubdirectories="False" NotifyFilters="FileName" Path="[folderToMonitor]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:FileChangeTrigger>
+          </ui:MonitorEvents.Triggers>
+        </ui:MonitorEvents>
+        <ui:MessageBox Buttons="YesNo" Caption="Continue" ChosenButton="[chosenButton]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="657.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Continue monitoring for added files?&quot;]" TopMost="True" />
+        <Assign sap:VirtualizedContainerService.HintSize="657.6,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Boolean">[shouldStop]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Boolean">[chosenButton = "No"]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+    </While>
+  </Sequence>
+</Activity>
